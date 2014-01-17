@@ -1,0 +1,72 @@
+﻿@model IEnumerable<JFSCnew.Models.Gifts>
+
+@{
+    ViewBag.Title = "礼品-首页";
+}
+<div class="inner-body">
+    <h2>首页</h2>
+
+    <p>
+        @Html.ActionLink("添加礼品", "Create")
+    </p>
+    <table class="list-table">
+        <tr>
+            <th>
+                名称
+            </th>
+            <th>
+                兑换值
+            </th>
+            <th>
+                市场价
+            </th>
+            <th>
+                详情
+            </th>
+            <th>
+                库存
+            </th>
+            <th>
+                状态
+            </th>
+            <th>
+                图片地址
+            </th>
+            <th>
+                操作
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mkt_price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.detail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.reserve)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.active)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.imgUrl)
+                </td>
+                <td>
+                    @Html.ActionLink("编辑", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("详情", "Details", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

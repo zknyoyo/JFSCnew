@@ -1,0 +1,65 @@
+﻿@model JFSCnew.Models.Gifts
+
+@{
+    ViewBag.Title = "礼品-详情";
+}
+<div class="inner-body">
+    <h2>详情</h2>
+
+    <fieldset>
+        <legend>礼品</legend>
+
+        <div class="display-label">
+            名称：
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.name)
+        </div>
+
+        <div class="display-label">
+            兑换值：
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.price)
+        </div>
+
+        <div class="display-label">
+            市场价：
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.mkt_price)
+        </div>
+
+        <div class="display-label">
+            简介：
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.detail)
+        </div>
+
+        <div class="display-label">
+            库存：
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.reserve)
+        </div>
+
+        <div class="display-label">
+            状态：
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.active)
+        </div>
+
+        <div class="display-label">
+            图片地址
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.imgUrl)
+        </div>
+    </fieldset>
+    <p>
+        @Html.ActionLink("编辑", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("返回列表", "Index")
+    </p>
+</div>

@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "积分列表";
+}
+
+<div class="inner-body">
+    <h2>RecordsList</h2><br />
+    <div class="datepicker-bar">
+        <span>起始日期：</span>
+        <input id="start" class="date-box Wdate" type="datetime" onfocus="WdatePicker({ dateFmt: 'yyyy/MM/dd', maxDate: '%y-%M-%d' })" readonly="readonly" />
+        <span>结束日期：</span>
+        <input id="end" class="date-box Wdate" type="datetime" onfocus="WdatePicker({ dateFmt: 'yyyy/MM/dd', maxDate: '%y-%M-%d' })" readonly="readonly" />
+        <input id="get-exchange-list" type="submit" value="查询" />
+    </div>
+    <div id="records-list"></div>
+</div>
+
+@section scripts{
+    <script  type="text/javascript"  src=@Url.Content("~/scripts/my97datepicker/WdatePicker.js")></script>
+    <script>
+        (function () {
+            $('#get-exchange-list').click(function () {
+                $.ajax({
+                    method: 'get',
+                    data: { start: $('#start').val(), end: $('#end').val() },
+                    url: '../../home/getrecordslist',
+                    success: function (data) {
+                        $('#records-list').html(data);
+                    },
+                    error: function (response) {
+                        alert(response);
+                    }
+                });
+            });
+        })();
+    </script>
+    }

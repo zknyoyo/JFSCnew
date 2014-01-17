@@ -1,0 +1,47 @@
+﻿@using JFSCnew.Models
+@{
+    ViewBag.Title = "礼品";
+    Gifts gift = ViewBag.Gift;
+}
+
+
+<div style="padding:15px 35px;position:relative;">
+    <h2 class="text-yahei">物品详情</h2><br />
+    <div class="left-body">
+        <img src=@Url.Content("~/images/"+gift.imgUrl+".png") title="@gift.name" />
+    </div>
+    <div class="right-body">
+        <div class="gift-details">
+            <div>
+                <div class="gift-title">@gift.name</div><br />
+                <span class="text-grey">
+                所需积分：<b class="text-red text-large">@gift.price</b>&nbsp;分<br /><br />
+                市场价格：<b class="text-red text-large" style="text-decoration:line-through;">&#65509;@gift.mkt_price</b>&nbsp;元<br /><br />
+                数量：</span> 
+                <div class="amount-op" >
+                    <div class="amount-minus">-</div>
+                     <input id="amount"  type="text" value="1" readonly="readonly"  />
+                    <div class="amount-plus">+</div>
+                    <div class="clear-fix"></div>
+                </div>
+            </div><br />
+            <div id="gift_id" gid=@gift.Id gprice=@gift.price class="text-grey">简介：@gift.detail</div><br /><br />
+            <div id="exchange" class="button-red">确认兑换</div>
+        </div>
+    </div>
+    <div class="clear-fix"></div>
+    <div class="confirm-box">
+        <div class="gift-min-details">
+            <img src=@Url.Content("~/images/"+gift.imgUrl+".png") title="@gift.name" /> 
+            <div class="detail-box">
+                <span class="gift-small-title">@gift.name</span>
+                <br /><br />您将消费：<br /><br />
+                <span id="confirm-info"></span>
+                分？
+            </div> 
+            <div class="clear-fix"></div>
+        </div>
+        <div class="confirm-button">确认</div>
+        <div class="cancel-button">取消</div>
+    </div>
+</div>

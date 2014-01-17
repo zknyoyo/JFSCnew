@@ -1,0 +1,21 @@
+﻿
+@if (Request.IsAuthenticated) {
+    <text>
+        你好，@Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "管理" })!
+@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+{
+    @Html.AntiForgeryToken()
+    <a href="javascript:document.getElementById('logoutForm').submit()">注销</a>
+}         
+ <br />  积分总额：<span id="points"></span> 
+@if(User.Identity.Name=="admin")
+{
+    <a href=@Url.Content("~/home/recordslist") style="background-color:#0d5ded;color:#fff;">兑换表</a>
+}
+
+    </text>
+} else {
+    <ul>
+        <li>@Html.ActionLink("登录", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

@@ -1,0 +1,86 @@
+﻿@model JFSCnew.Models.Employees
+
+@{
+    ViewBag.Title = "员工-添加";
+}
+<div class="inner-body">
+    <h2>添加</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>员工</legend>
+
+            <div class="editor-label">
+                工号
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.job_num)
+                @Html.ValidationMessageFor(model => model.job_num)
+            </div>
+
+            <div class="editor-label">
+                姓名
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.name)
+                @Html.ValidationMessageFor(model => model.name)
+            </div>
+
+            <div class="editor-label">
+                性别
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.sex)
+                @Html.ValidationMessageFor(model => model.sex)
+                <span>男性请打勾</span>
+            </div>
+
+            <div class="editor-label">
+                部门
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.dept)
+                @Html.ValidationMessageFor(model => model.dept)
+            </div>
+
+            <div class="editor-label">
+                角色
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.role)
+                @Html.ValidationMessageFor(model => model.role)
+            </div>
+
+            <div class="editor-label">
+                电话
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.phone)
+                @Html.ValidationMessageFor(model => model.phone)
+            </div>
+
+            <div class="editor-label">
+                状态
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.active)
+                @Html.ValidationMessageFor(model => model.active)
+            </div>
+
+            <p>
+                <input type="submit" value="添加" />
+            </p>
+        </fieldset>
+    }
+
+    <div>
+        @Html.ActionLink("返回列表", "Index")
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

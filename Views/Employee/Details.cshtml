@@ -1,0 +1,65 @@
+﻿@model JFSCnew.Models.Employees
+
+@{
+    ViewBag.Title = "员工-详情";
+}
+<div class="inner-body">
+    <h2>详情</h2>
+
+    <fieldset>
+        <legend>员工</legend>
+
+        <div class="display-label">
+            工号：
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.job_num)
+        </div>
+
+        <div class="display-label">
+            姓名：
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.name)
+        </div>
+
+        <div class="display-label">
+            性别：
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.sex)
+        </div>
+
+        <div class="display-label">
+            部门：
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.dept)
+        </div>
+
+        <div class="display-label">
+            角色：
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.role)
+        </div>
+
+        <div class="display-label">
+            电话：
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.phone)
+        </div>
+
+        <div class="display-label">
+            状态：
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.active)
+        </div>
+    </fieldset>
+    <p>
+        @Html.ActionLink("编辑", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("返回列表", "Index")
+    </p>
+</div>

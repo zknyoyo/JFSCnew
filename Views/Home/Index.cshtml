@@ -1,0 +1,23 @@
+﻿@using JFSCnew.Models
+@{
+    ViewBag.Title = "首页";
+    IEnumerable<Gifts> gifts = ViewBag.Gifts;
+}
+
+<ul class="gift_items">
+    <br />
+    <h2 class="text-yahei sort-title">礼品列表</h2>
+    @foreach (Gifts g in gifts)
+    {
+        <li>
+            <img src=@Url.Content("~/images/"+g.imgUrl+".png") alt="@g.name" /><br /><br />
+            <b class="text-large">@g.name</b><br />
+            <div>
+                兑换值：<b class="text-red text-large">@g.price </b>分<br />
+                市场价：<b class="text-red text-large" style="text-decoration:line-through">&#65509; @g.mkt_price </b>元
+            </div><br />
+            <div class="button-red"><a class="no-decoration" href=@Url.Content("~/home/gift?id="+@g.Id)>立即兑换</a></div>
+        </li> 
+    }
+    <div class="clear-fix"></div>
+</ul>

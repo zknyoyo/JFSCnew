@@ -1,0 +1,71 @@
+﻿@model IEnumerable<JFSCnew.Models.Employees>
+
+@{
+    ViewBag.Title = "员工-首页";
+}
+<div class="inner-body">
+    <h2>首页</h2>
+
+    <p>
+        @Html.ActionLink("添加员工", "Create")
+    </p>
+    <table class="list-table">
+        <tr>
+            <th>
+                工号
+            </th>
+            <th>
+                姓名
+            </th>
+            <th>
+                性别
+            </th>
+            <th>
+                部门
+            </th>
+            <th>
+                角色
+            </th>
+            <th>
+                电话
+            </th>
+            <th>
+                状态
+            </th>
+            <th>
+                操作
+            </th>
+        </tr>
+
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.job_num)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sex)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dept)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.role)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.active)
+                </td>
+                <td>
+                    @Html.ActionLink("编辑", "Edit", new { id=item.Id }) |
+                    @Html.ActionLink("详情", "Details", new { id=item.Id })
+                </td>
+            </tr>
+}
+
+    </table>
+</div>

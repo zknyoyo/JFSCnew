@@ -1,0 +1,51 @@
+﻿@model IEnumerable<JFSCnew.Models.Users>
+
+@{
+    ViewBag.Title = "用户-首页";
+}
+<div class="inner-body">
+    <h2>首页</h2>
+
+
+    <table class="list-table">
+        <tr>
+            <th>
+                用户名
+            </th>
+            <th>
+                密码
+            </th>
+            <th>
+                状态
+            </th>
+            <th>
+               积分
+            </th>
+            <th>
+                操作
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.active)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.points)
+                </td>
+                <td>
+                    @Html.ActionLink("编辑", "Edit", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

@@ -1,0 +1,27 @@
+﻿@using JFSCnew.Models
+@{
+    ViewBag.Title = "GetExchangeList";
+    IEnumerable<Gifts> gifts = ViewBag.gifts;
+}
+@model IEnumerable<Users>
+<table class="list-table">
+    <tr>
+        <th>工号</th>
+        <th>名字</th>
+        @foreach (var g in gifts)
+        {
+            <th class="list-th">@g.name</th>
+        }
+    </tr>
+    @foreach (var ur in Model)
+    {
+        <tr>
+            <td>@ur.name</td>
+            <td>@ur.Employees.name</td>
+            @foreach (var g in gifts)
+            {
+                <td>@ur.Records.Where(r => r.active = true && r.gift_id == g.Id && r.createddt <= @ViewBag.end && r.createddt > @ViewBag.start).Count()</td>
+            }
+        </tr>
+    }
+</table>
